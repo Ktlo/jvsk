@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.9.0"
+    kotlin("jvm") version "1.9.10"
 }
 
 group = "org.example"
@@ -9,6 +9,12 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+kotlin.sourceSets.all {
+    languageSettings {
+        enableLanguageFeature("ContextReceivers")
+    }
 }
 
 dependencies {
