@@ -1,6 +1,12 @@
 package jvsk.kotlin
 
-class Something
+/*
+     Any <-----------------> Nothing
+ */
+
+class Something // : Any()
+
+// class Nothing : Something(), Any()
 
 fun throwError1(): Nothing {
     throw IllegalStateException()

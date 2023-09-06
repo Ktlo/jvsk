@@ -3,7 +3,7 @@
 package jvsk.kotlin
 
 @JvmInline
-value class Color private constructor(private val value: Int) {
+value class Color private constructor(private val value: Int) : Comparable<Color> {
 
     constructor(red: Byte, green: Byte, blue: Byte, alpha: Byte = -1) : this(
         int(red) shl 8 or int(green) shl 8 or int(blue) shl 8 or int(alpha)
@@ -25,11 +25,11 @@ value class Color private constructor(private val value: Int) {
 
     operator fun component4() = alpha
 
+    override fun compareTo(other: Color): Int {
+        TODO("Not yet implemented")
+    }
+
     override fun toString() = "Color(" + value.toUInt().toHexString(HexFormat.UpperCase) + ")"
 }
 
 private fun int(byte: Byte) = byte.toInt() and 0xFF
-
-fun tets(color: Color) {
-    val (r, g, b, a) = color
-}

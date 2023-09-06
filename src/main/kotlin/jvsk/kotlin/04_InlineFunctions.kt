@@ -1,12 +1,14 @@
 package jvsk.kotlin
 
-interface Event
-
 inline fun forever(block: () -> Unit): Nothing {
     while (true) {
         block()
     }
 }
+
+///
+
+interface Event
 
 interface Disposable {
 
@@ -46,11 +48,13 @@ fun nextEvent(): Event {
 fun gotoExample(value: Boolean) {
     run label@{
 
-        if (value) {
-            return@label
-        }
+        forever {
+            if (value) {
+                return@label // goto label;
+            }
 
-        println("no goto")
+            println("no goto")
+        }
     }
     // label:
 }
